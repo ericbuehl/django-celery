@@ -15,7 +15,7 @@ class Migration(SchemaMigration):
         # Adding model 'TaskMeta'
         db.create_table('celery_taskmeta', (
                 ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-                ('task_id', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
+                ('task_id', self.gf('django.db.models.fields.CharField')(unique=True, max_length=191)),
                 ('status', self.gf('django.db.models.fields.CharField')(default='PENDING', max_length=50)),
                 ('result', self.gf('djcelery.picklefield.PickledObjectField')(default=None, null=True)),
                 ('date_done', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
@@ -25,7 +25,7 @@ class Migration(SchemaMigration):
         # Adding model 'TaskSetMeta'
         db.create_table('celery_tasksetmeta', (
                 ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-                ('taskset_id', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
+                ('taskset_id', self.gf('django.db.models.fields.CharField')(unique=True, max_length=191)),
                 ('result', self.gf('djcelery.picklefield.PickledObjectField')()),
                 ('date_done', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),))
         db.send_create_signal('djcelery', ['TaskSetMeta'])
@@ -73,7 +73,7 @@ class Migration(SchemaMigration):
         # Adding model 'WorkerState'
         db.create_table('djcelery_workerstate', (
                 ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-                ('hostname', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
+                ('hostname', self.gf('django.db.models.fields.CharField')(unique=True, max_length=19)),
                 ('last_heartbeat', self.gf('django.db.models.fields.DateTimeField')(null=True, db_index=True)),))
         db.send_create_signal('djcelery', ['WorkerState'])
 
