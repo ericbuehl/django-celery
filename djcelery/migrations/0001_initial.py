@@ -54,7 +54,7 @@ class Migration(SchemaMigration):
         # Adding model 'PeriodicTask'
         db.create_table('djcelery_periodictask', (
                 ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-                ('name', self.gf('django.db.models.fields.CharField')(unique=True, max_length=200)),
+                ('name', self.gf('django.db.models.fields.CharField')(unique=True, max_length=191)),
                 ('task', self.gf('django.db.models.fields.CharField')(max_length=200)),
                 ('interval', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['djcelery.IntervalSchedule'], null=True, blank=True)),
                 ('crontab', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['djcelery.CrontabSchedule'], null=True, blank=True)),
